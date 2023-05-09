@@ -44,10 +44,10 @@ const NavBar = ({ pages, settings, logged, userInfo }: NavBarProps) => {
     <nav>
       <AppBar
         position="static"
+        className="bg-green-600"
         sx={{
           width: '100vw',
           height: '3rem',
-          backgroundColor: 'rgb(0, 255, 0, 0.2)',
           backdropFilter: 'blur(10px)',
           display: 'flex',
           alignItems: 'center',

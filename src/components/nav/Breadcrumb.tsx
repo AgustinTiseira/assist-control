@@ -19,7 +19,6 @@ const Breadcrumb = () => {
   const breadcrumbs = pathSegments.reduce<{ label: string; url: string }[]>(
     (acc, segment, index) => {
       const url = `/${pathSegments.slice(0, index + 1).join('/')}`;
-      console.log(segment);
       return [...acc, { label: breadcrumbLabels[segment] || segment, url }];
     },
     [{ label: 'Inicio', url: '/' }]
