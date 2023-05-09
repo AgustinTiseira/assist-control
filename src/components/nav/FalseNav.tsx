@@ -8,7 +8,9 @@ export interface FalseNavProps {
 const FalseNav = ({ title }: FalseNavProps) => {
   return (
     <div
-      className={' flex align-middle justify-center h-12 w-screen bg-green-600'}
+      className={
+        ' flex align-middle justify-center h-12 w-screen bg-gray-200 bg-opacity-50 backdrop-filter backdrop-blur-lg shadow-lg'
+      }
     >
       <Typography
         variant="h6"

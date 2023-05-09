@@ -19,9 +19,16 @@ export interface NavBarProps {
   settings?: string[];
   logged: boolean;
   userInfo?: { name: string };
+  className?: string;
 }
 
-const NavBar = ({ pages, settings, logged, userInfo }: NavBarProps) => {
+const NavBar = ({
+  pages,
+  settings,
+  logged,
+  userInfo,
+  className,
+}: NavBarProps) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -41,10 +48,10 @@ const NavBar = ({ pages, settings, logged, userInfo }: NavBarProps) => {
   };
 
   return (
-    <nav>
+    <nav className={className}>
       <AppBar
         position="static"
-        className="bg-green-600"
+        className="bg-gray-200 bg-opacity-50 backdrop-filter backdrop-blur-lg"
         sx={{
           width: '100vw',
           height: '3rem',
