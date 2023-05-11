@@ -3,7 +3,7 @@ import React from 'react';
 
 const Description = () => {
   return (
-    <Card>
+    <Card className="flex flex-col">
       <span className=" font-medium">Grupos</span>
       <span className=" text-sm">
         Dentro de tu organización puede haber grupos por los cuales se

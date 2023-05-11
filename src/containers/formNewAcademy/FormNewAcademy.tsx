@@ -8,10 +8,12 @@ import { MuiColorInput } from 'mui-color-input';
 import Fab from '@mui/material/Fab';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { MuiTelInput } from 'mui-tel-input';
+import { MuiFileInput } from 'mui-file-input';
 
 const FormNewAcademy = () => {
   const [entityType, setEntityType] = useState<string>('');
   const [entityName, setEntityName] = useState<string>('');
+  const [file, setFile] = useState<File | null>(null);
   const [color, setColor] = useState<string>('#000000');
   const [phone, setPhone] = useState<string>('');
   const [responsibleName, setResponsibleName] = useState<string>('');
@@ -26,6 +28,10 @@ const FormNewAcademy = () => {
 
   const handleChangePhone = (value: string) => {
     setPhone(value);
+  };
+
+  const handleChangeFile = (file: File | null) => {
+    setFile(file);
   };
 
   return (
@@ -57,6 +63,13 @@ const FormNewAcademy = () => {
           value={color}
           onChange={handleChangeColor}
           required
+        />
+        <MuiFileInput
+          fullWidth
+          label={'Imagen que te representa'}
+          className={'pb-6'}
+          value={file}
+          onChange={handleChangeFile}
         />
         <TextField
           className={'pb-6'}

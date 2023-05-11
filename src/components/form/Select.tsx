@@ -23,9 +23,7 @@ const SelectForm = ({
 }: SelectFormProps) => {
   return (
     <>
-      {titleForm && (
-        <span className={'ml-8 font-medium text-xl'}>{titleForm}</span>
-      )}
+      {titleForm && <span className={' font-medium text-xl'}>{titleForm}</span>}
       <div className="py-3">
         {
           <FormControl fullWidth>
