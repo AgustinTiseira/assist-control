@@ -26,7 +26,7 @@ const SelectForm = ({
       {titleForm && (
         <span className={'ml-8 font-medium text-xl'}>{titleForm}</span>
       )}
-      <div className="px-8 py-3">
+      <div className="py-3">
         {
           <FormControl fullWidth>
             <InputLabel id="select-label-entity-type">{label}</InputLabel>

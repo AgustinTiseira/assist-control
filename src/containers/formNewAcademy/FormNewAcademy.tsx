@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import SelectForm from '@/components/form/Select';
 import Breadcrumb from '@/components/nav/Breadcrumb';
-import FalseNav from '@/components/nav/FalseNav';
 import { continents, entityTypes } from '@/data/formNewAcademyData';
 import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
 import TextField from '@mui/material/TextField';
@@ -30,8 +29,7 @@ const FormNewAcademy = () => {
   };
 
   return (
-    <div>
-      <FalseNav title="Presente" />
+    <>
       <Breadcrumb />
       <SelectForm
         titleForm={'Entidad'}
@@ -41,16 +39,16 @@ const FormNewAcademy = () => {
         handleChange={handleChangeEntityType}
         required={true}
       />
-      <div className={'px-8 py-3 w-full'}>
+      <div className={'py-3 w-full'}>
         <TextField
           className={'pb-6'}
           fullWidth
           label="Nombre de la Entidad"
           value={entityName}
+          required
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
             setEntityName(event.target.value);
           }}
-          required
         />
         <MuiColorInput
           fullWidth
@@ -82,12 +80,12 @@ const FormNewAcademy = () => {
       </div>
       <Fab
         variant="extended"
-        className={'absolute bottom-5 right-5 bg-green-200'}
+        className={'sticky top-[calc(100vh-8rem)] left-full bg-green-200 z-0'}
       >
         Crear Cuenta
         <NavigateNextIcon />
       </Fab>
-    </div>
+    </>
   );
 };
 

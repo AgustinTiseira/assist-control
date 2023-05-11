@@ -7,7 +7,7 @@ import { Tooltip } from '@mui/material';
 
 const DashboardContainer = () => {
   return (
-    <div className={'relative h-[calc(100vh-4rem)] px-5'}>
+    <>
       <TopBarMobile
         title={'Hola Agustin 👋 '}
         showBackButton={false}
@@ -18,12 +18,14 @@ const DashboardContainer = () => {
       <Tooltip title="Agregar grupo" placement="left">
         <Fab
           aria-label="add"
-          className={'absolute bottom-5 right-5 bg-green-300'}
+          className={
+            ' sticky top-[calc(100vh-8rem)] left-full bg-green-300 z-0'
+          }
         >
           <AddIcon />
         </Fab>
       </Tooltip>
-    </div>
+    </>
   );
 };
 

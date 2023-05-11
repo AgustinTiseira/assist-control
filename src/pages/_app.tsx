@@ -11,7 +11,7 @@ import { navBarEntityPages, navBarEntitySettings } from '@/data/Dashboard';
 import Link from 'next/link';
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  const [value, setValue] = useState<string>('Central');
+  const [value, setValue] = useState<string>('Dashboard');
   const excludeNavbarEntity = ['/', '/NewForm'].includes(router.asPath);
 
   useEffect(() => {
@@ -27,15 +27,17 @@ export default function App({ Component, pageProps, router }: AppProps) {
       {!excludeNavbarEntity && (
         <NavBar
           logged={true}
-          className={'hidden md:flex '}
+          className={'hidden md:flex md:mb-5'}
           pages={navBarEntityPages}
           settings={navBarEntitySettings}
         />
       )}
-      <Component {...pageProps} />
+      <div className={' min-h-[calc(100vh-3.5rem)] h-[calc(100vh-3.5rem)]'}>
+        <Component {...pageProps} />
+      </div>
       {!excludeNavbarEntity && (
         <BottomNavigation
-          className={'md:hidden absolute bottom-0 w-full'}
+          className={'md:hidden fixed bottom-0 w-full h-14'}
           showLabels
           value={value}
           onChange={(event, newValue) => {
@@ -44,22 +46,22 @@ export default function App({ Component, pageProps, router }: AppProps) {
         >
           <BottomNavigationAction
             LinkComponent={Link}
-            href="/entity/Dashboard"
-            value={'Central'}
+            href="/Entity/Dashboard"
+            value={'Dashboard'}
             label="Central"
             icon={<HomeIcon />}
           />
           <BottomNavigationAction
             LinkComponent={Link}
-            value={'Grupos'}
+            value={'Groups'}
             label="Grupos"
-            href="/entity/Groups"
+            href="/Entity/Groups"
             icon={<FavoriteIcon />}
           />
           <BottomNavigationAction
-            value={'Perfil'}
+            value={'Profile'}
             label="Perfil"
-            href="/entity/Profile"
+            href="/Entity/Profile"
             icon={<AccountCircleIcon />}
           />
         </BottomNavigation>

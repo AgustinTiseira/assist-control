@@ -1,6 +1,7 @@
 import React from 'react';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import IconButton from '@mui/material/IconButton';
+import { useRouter } from 'next/router';
 
 export interface TopBarMobileProps {
   title: string;
@@ -13,14 +14,13 @@ const TopBarMobile = ({
   showBackButton,
   children,
 }: TopBarMobileProps) => {
-  const goBack = () => {
-    window.history.back();
-  };
+  const router = useRouter();
+
   return (
     <div className="flex w-screen h-16 md:hidden items-center py-3 px-5 -mx-5 text-lg justify-between ">
       <div>
         {showBackButton && (
-          <IconButton onClick={goBack} className={'p-0 pr-2'}>
+          <IconButton onClick={() => router.back()} className={'p-0 pr-2'}>
             <ArrowBackIosNewIcon />
           </IconButton>
         )}

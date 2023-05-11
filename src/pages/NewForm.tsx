@@ -3,7 +3,7 @@ import React from 'react';
 
 const NewForm = () => {
   return (
-    <div>
+    <div className="h-full  px-5">
       <FormNewAcademy />
     </div>
   );

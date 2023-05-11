@@ -9,7 +9,7 @@ export interface CardProps {
 const Card = ({ children, className }: CardProps) => {
   return (
     <Box
-      className={`px-4 flex-col py-3 shadow-lg rounded-lg bg-white ${className}`}
+      className={`flex px-4 flex-col py-3 shadow-lg rounded-lg bg-white ${className}`}
     >
       {children}
     </Box>
