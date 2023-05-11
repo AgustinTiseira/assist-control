@@ -8,54 +8,67 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useRouter } from 'next/router';
 
 const groupsList = [
   {
     name: 'Grupo 1',
+    id: '1',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 2',
+    id: '2',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 3',
+    id: '3',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 4',
+    id: '4',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 1',
+    id: '5',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 2',
+    id: '6',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 3',
+    id: '7',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 4',
+    id: '8',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 1',
+    id: '9',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 2',
+    id: '10',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 3',
+    id: '11',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
     name: 'Grupo 4',
+    id: '12',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
 ];
@@ -63,6 +76,8 @@ const groupsList = [
 const GroupsContainer = () => {
   const [groupName, setGroupName] = React.useState('');
   const [groups, setGroups] = React.useState(groupsList);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (groupName === '') {
@@ -74,6 +89,10 @@ const GroupsContainer = () => {
     });
     setGroups(filteredGroups);
   }, [groupName, groups]);
+
+  const goToGroup = (groupID: string) => {
+    router.push(`/Entity/Groups/${groupID}`);
+  };
 
   return (
     <>
@@ -115,6 +134,7 @@ const GroupsContainer = () => {
           <Card
             className="flex flex-row justify-between gap-3 cursor-pointer w-full h-30"
             key={`${group.name}-${index}`}
+            onClick={() => goToGroup(group.id)}
           >
             <Avatar
               className="w-2/10"
