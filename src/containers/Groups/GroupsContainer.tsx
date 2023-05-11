@@ -32,42 +32,42 @@ const groupsList = [
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 1',
+    name: 'Grupo 5',
     id: '5',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 2',
+    name: 'Grupo 6',
     id: '6',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 3',
+    name: 'Grupo 7',
     id: '7',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 4',
+    name: 'Grupo 8',
     id: '8',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 1',
+    name: 'Grupo 9',
     id: '9',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 2',
+    name: 'Grupo 10',
     id: '10',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 3',
+    name: 'Grupo 11',
     id: '11',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
   {
-    name: 'Grupo 4',
+    name: 'Grupo 12',
     id: '12',
     subGroups: ['Subgrupo 1', 'Subgrupo 2', 'Subgrupo 3', 'Subgrupo 4'],
   },
@@ -109,6 +109,7 @@ const GroupsContainer = () => {
       </TopBarMobile>
       <div className="flex flex-col gap-5 pb-16">
         <Autocomplete
+          freeSolo
           id="search-group"
           disableClearable
           onChange={(event: SyntheticEvent<Element, Event>, newValue) => {

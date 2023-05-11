@@ -3,7 +3,7 @@ import Card from '@/components/Card/Card';
 import TopBarMobile from '@/components/nav/TopBarMobile';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
-import { Tooltip } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 
 const DashboardContainer = () => {
   return (
