@@ -2,13 +2,12 @@ import Card from '@/components/Card/Card';
 import TopBarMobile from '@/components/nav/TopBarMobile';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
-import React, { SyntheticEvent, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
-import Autocomplete from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useRouter } from 'next/router';
+import SearchBar from '@/components/searchBar/SearchBar';
 
 const groupsList = [
   {
@@ -108,28 +107,11 @@ const GroupsContainer = () => {
         </Button>
       </TopBarMobile>
       <div className="flex flex-col gap-5 pb-16">
-        <Autocomplete
-          freeSolo
-          id="search-group"
-          disableClearable
-          onChange={(event: SyntheticEvent<Element, Event>, newValue) => {
-            setGroupName(newValue);
-          }}
-          options={groupsList.map((group) => group.name)}
+        <SearchBar
+          setValue={setGroupName}
           value={groupName}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Buscar grupo"
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setGroupName(event.target.value)
-              }
-              InputProps={{
-                ...params.InputProps,
-                type: 'search',
-              }}
-            />
-          )}
+          optionsList={groupsList}
+          label="Buscar grupo"
         />
         {groups.map((group, index) => (
           <Card

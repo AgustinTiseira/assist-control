@@ -18,6 +18,7 @@ const FindGroupsContainer = () => {
         setValue={setGroupName}
         value={groupName}
         optionsList={groupsList}
+        label="Buscar grupo"
       />
     </div>
   );

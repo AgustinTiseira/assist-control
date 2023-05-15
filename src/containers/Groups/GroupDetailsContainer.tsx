@@ -1,47 +1,143 @@
-import Card from '@/components/Card/Card';
+import GroupDetailDescription from '@/components/entity/groups/GroupDetail/GroupDetailDescription';
+import Subgroups from '@/components/entity/groups/GroupDetail/Subgroup/Subgroups';
 import TopBarMobile from '@/components/nav/TopBarMobile';
-import React from 'react';
-import EditIcon from '@mui/icons-material/Edit';
-import IconButton from '@mui/material/IconButton';
+import React, { useEffect } from 'react';
+
+const groupDetailDescriptionMock = {
+  responsible: 'Juan Perez',
+  inscripted: 20,
+  openInscription: 'Si',
+  days: [
+    { day: 'lunes', hour: '18:00' },
+    { day: 'martes', hour: '18:00' },
+  ],
+};
+
+const subGroupsList = [
+  {
+    name: 'Subgrupo 1',
+    id: '1',
+    inscripted: [
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+    ],
+  },
+  {
+    name: 'Subgrupo 2',
+    id: '2',
+    inscripted: [
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+    ],
+  },
+  {
+    name: 'Subgrupo 3',
+    id: '3',
+    inscripted: [
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+      {
+        name: 'Agustin',
+        lastName: 'Tiseira',
+        age: '24',
+        phoneNumber: '1130207789',
+      },
+    ],
+  },
+];
 
 const GroupDetails = () => {
+  const [subgroupName, setSubgroupName] = React.useState('');
+  const [subgroups, setSubgroups] = React.useState(subGroupsList);
+
+  useEffect(() => {
+    if (subgroupName === '') {
+      setSubgroups(subGroupsList);
+      return;
+    }
+    const filteredGroups = subGroupsList.filter((group) => {
+      return group.name.toLowerCase().includes(subgroupName.toLowerCase());
+    });
+    setSubgroups(filteredGroups);
+  }, [subgroupName, subgroups]);
   return (
     <>
       <TopBarMobile showBackButton title={'Futbol Escuelita'} />
-      <Card className="relative flex justify-between w-full">
-        <div className="flex flex-col gap-3">
-          <div>
-            <span className=" font-medium">Responsable: </span>
-            <span className=" font-extralight">Javier</span>
-          </div>
-          <div>
-            <span className=" font-medium">Inscriptos: </span>
-            <span className=" font-extralight">25</span>
-          </div>
-          <div>
-            <span className=" font-medium">Inscripcion abierta: </span>
-            <span className=" font-extralight">Si</span>
-          </div>
-        </div>
-        <div className="flex flex-col items-center">
-          <span className=" font-medium">Dias y horarios:</span>
-          <div>
-            <span className=" font-extralight">Lunes </span>
-            <span className=" font-extralight">18:00 - 19:00</span>
-          </div>
-          <div>
-            <span className=" font-extralight">Miercoles </span>
-            <span className=" font-extralight">18:00 - 19:00</span>
-          </div>
-          <div>
-            <span className=" font-extralight">Viernes </span>
-            <span className=" font-extralight">13:00 - 15:00</span>
-          </div>
-        </div>
-        <IconButton className=" text-green-600 w-4 h-4 absolute right-2 top-2">
-          <EditIcon className="" />
-        </IconButton>
-      </Card>
+      <GroupDetailDescription descriptionInfo={groupDetailDescriptionMock} />
+      <Subgroups
+        optionsList={subGroupsList}
+        subgroupsList={subgroups}
+        value={subgroupName}
+        setValue={setSubgroupName}
+      />
     </>
   );
 };

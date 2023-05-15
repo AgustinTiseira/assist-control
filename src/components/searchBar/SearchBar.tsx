@@ -6,14 +6,15 @@ export interface SearchBarProps {
   setValue: Dispatch<React.SetStateAction<string>>;
   value: string;
   optionsList: { name: string }[];
+  label: string;
 }
 
-const SearchBar = ({ setValue, optionsList, value }: SearchBarProps) => {
+const SearchBar = ({ setValue, optionsList, value, label }: SearchBarProps) => {
   return (
     <div>
       <Autocomplete
         freeSolo
-        id="search-group"
+        id={`search-${label}`}
         disableClearable
         onChange={(event: SyntheticEvent<Element, Event>, newValue) => {
           setValue(newValue);
@@ -23,7 +24,7 @@ const SearchBar = ({ setValue, optionsList, value }: SearchBarProps) => {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Buscar grupo"
+            label={label}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
               setValue(event.target.value)
             }
